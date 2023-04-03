@@ -51,7 +51,7 @@ campgroundSchema.virtual('properties.popUpMarkup').get(function () {
   <p>$${this.price}/ night</p>`;
 });
 
-// POST DELETION MIDDLEWARE:
+// POST-DELETION MIDDLEWARE:
 
 campgroundSchema.post('findOneAndDelete', async function (doc) {
   console.log(doc);
