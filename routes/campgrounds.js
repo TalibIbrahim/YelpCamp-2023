@@ -13,7 +13,7 @@ const campgrounds = require('../controllers/campgrounds');
 
 // ______________________________________________
 
-// CAMPGROUNDS PAGE: (read)
+// CAMPGROUNDS: (Get & Post)
 
 router
   .route('/')
@@ -27,11 +27,13 @@ router
 
 // ______________________________________________
 
-// CAMPGROUNDS CREATE PAGE: (create)
+// GET CREATE PAGE:
 
 router.get('/new', isLoggedIn, campgrounds.renderNewForm);
 
 // ______________________________________________
+
+// SHOW PAGE: (Get, Update & Delete)
 
 router
   .route('/:id')
@@ -44,7 +46,7 @@ router
   )
   .delete(isLoggedIn, isAuthor, catchAsync(campgrounds.deleteCampground));
 
-// CAMPGROUNDS EDIT PAGE: (update)
+// GET EDIT PAGE:
 
 router.get(
   '/:id/edit',
