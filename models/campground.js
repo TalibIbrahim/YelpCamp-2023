@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// Schema variable because we will need it afterwards.
 const Schema = mongoose.Schema;
 const Review = require('./review');
 
@@ -40,7 +39,6 @@ const campgroundSchema = new mongoose.Schema(
       {
         type: Schema.Types.ObjectId,
         ref: 'Review',
-        // Reference to the Review model
       },
     ],
   },
@@ -53,11 +51,7 @@ campgroundSchema.virtual('properties.popUpMarkup').get(function () {
   <p>$${this.price}/ night</p>`;
 });
 
-// DELETION MIDDLEWARE:
-
-// Everytime we use the findByIdAndDelete or other similar methods, we trigger some built-in express middleware.
-// findByIdAndDelete triggers the findOneAndDelete middleware.
-// So whenever we delete our campground, we delete all reviews associated with it.
+// POST DELETION MIDDLEWARE:
 
 campgroundSchema.post('findOneAndDelete', async function (doc) {
   console.log(doc);
