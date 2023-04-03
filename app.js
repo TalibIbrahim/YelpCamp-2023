@@ -2,7 +2,6 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
-// require('dotenv').config();
 // ----------------------------------------------------------------
 
 // OUR PACKAGES:
@@ -22,6 +21,7 @@ const helmet = require('helmet');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 
+// The dbUrl should be your mongoDb atlas url.
 const dbUrl = process.env.DB_URL;
 // 'mongodb://127.0.0.1:27017/yelp-camp'
 const MongoDBStore = require('connect-mongo');
@@ -38,7 +38,7 @@ const users = require('./routes/users');
 mongoose.set('strictQuery', true);
 
 // SESSION CONFIGURATION AND MIDDLEWARE:
-
+// (mongoUrl should be changed to dbUrl)
 const store = MongoDBStore.create({
   mongoUrl: 'mongodb://127.0.0.1:27017/yelp-camp',
   secret: 'thisshouldbeabettersecret',
