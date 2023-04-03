@@ -1,4 +1,5 @@
 mapboxgl.accessToken = mapToken;
+// mapToken should be your access token from mapbox.
 const map = new mapboxgl.Map({
   container: 'map', // container ID
   style: 'mapbox://styles/mapbox/streets-v12', // style URL
