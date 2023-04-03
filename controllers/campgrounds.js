@@ -97,7 +97,7 @@ module.exports.updateCampground = async (req, res) => {
 
 module.exports.deleteCampground = async (req, res) => {
   const { id } = req.params;
-
+ // DELETE IMAGES FROM CLOUDINARY:
   const campground = await Campground.findById(id);
   const images = campground.images;
   const filenames = images.map((image) => image.filename);
