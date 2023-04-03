@@ -167,6 +167,7 @@ main().catch((err) => console.log(err));
 //MONGOOSE CONNECTION:
 
 async function main() {
+//   url should be changed to dbUrl
   await mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp');
   console.log('Connection Open!');
 
@@ -188,8 +189,7 @@ app.use('/', users);
 app.use('/campgrounds', campgrounds);
 app.use('/campgrounds/:id/reviews', reviews);
 
-// ^ This route is because review routes are only accessed through a specific campground
-
+// HOME PAGE:
 app.get('/', (req, res) => {
   res.render('home');
 });
@@ -198,7 +198,7 @@ app.get('/', (req, res) => {
 
 // ---------------(ERROR CLASS)---------------
 
-// THIS PIECE OF CODE SHOULD BE AT THE END BECAUSE IT RUNS WHEN ANY OF THE CODE IS NOT RUN.
+// THIS PIECE OF CODE SHOULD BE AT THE END BECAUSE IT RUNS WHEN ANY OF THE CODE ABOVE IS NOT EXECUTED.
 
 app.all('*', (req, res, next) => {
   next(new ExpressError(404, 'Page Not Found'));
@@ -206,7 +206,7 @@ app.all('*', (req, res, next) => {
 
 // ______________________________________________
 
-// GENERIC CUSTOM ERROR HANDLER:
+// CUSTOM ERROR HANDLER:
 
 app.use((err, req, res, next) => {
   // IF IT IS NOT WITH THE 5XX AND 4XX RANGE, WE HAVE DEFAULT VALUES FOR IT.
