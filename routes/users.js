@@ -6,11 +6,14 @@ const { checkReturnTo } = require('../middleware');
 // USERS CONTROLLER:
 const users = require('../controllers/users');
 
+
+// REGISTER:
 router
   .route('/register')
   .get(users.renderRegister)
   .post(catchAsync(users.register));
 
+// LOGIN:
 router
   .route('/login')
   .get(users.renderLogin)
