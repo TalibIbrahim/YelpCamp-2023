@@ -1,4 +1,4 @@
-<!-- IF THERE IS A SUCCESS VARIABLE AND IT IS NOT EMPTY I.E. LENGTH IS NOT EQUAL TO 0 -->
+
 <% if(success && success.length) {%>
 <div class="alert alert-success alert-dismissible fade show" role="alert">
   <%= success %>
@@ -11,7 +11,7 @@
 
 <% } %>
 
-<!-- ------------------------------------ -->
+
 
 <% if(error && error.length) {%>
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -24,4 +24,4 @@
 </div>
 <% } %>
 
-<!-- WE NEED TO USE SOME LOGIC HERE BECAUSE IT JUST RENDERS AN EMPTY ALERT BECAUSE SUCCESS/ERROR ARRAY IS EMPTY. -->
+
