@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router({ mergeParams: true });
 const catchAsync = require('../utility/catchAsync');
 
-// OUR VALIDATION MIDDLEWARE:
+// VALIDATION MIDDLEWARE:
 const { validateReview, isLoggedIn, isReviewAuthor } = require('../middleware');
 
 // REVIEWS CONTROLLER:
 const reviews = require('../controllers/reviews');
 
+// ADD REVIEW:
 router.post('/', isLoggedIn, validateReview, catchAsync(reviews.createReview));
 
 // CAMPGROUNDS REVIEW DELETE:
