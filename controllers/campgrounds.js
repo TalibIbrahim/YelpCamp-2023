@@ -2,6 +2,7 @@ const Campground = require('../models/campground');
 
 // MAPBOX AND CONFIG:
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
+// THIS SHOULD BE YOUR ACCESS TOKEN.
 const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 
