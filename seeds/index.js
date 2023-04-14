@@ -38,7 +38,7 @@ const seedDB = async () => {
 
     // CODE FOR WORKING WITH UNSPLASH AND ACCCESS KEYS:
     const res = await axios.get(
-      'https://api.unsplash.com/photos/random?client_id=M8KduPngVr5V4DkB3g_bjhpfkEVY4j3nXthPhgrSpDo&collections=9046579'
+      'https://api.unsplash.com/photos/random?client_id=[UNSPLASH_API_KEY]&collections=9046579'
     );
     const imageURL = res.data.urls.small;
 
